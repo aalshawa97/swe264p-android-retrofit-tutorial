@@ -1,23 +1,24 @@
-package edu.uci.swe264p.retrofit;
+package edu.uci.swe264p.retrofit.activities.programlist;
 
+import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
+import edu.uci.swe264p.retrofit.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
 public class ProgramListActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_list);
 
-        List<String> programs = new ArrayList<String>(
+        List<String> programs = new ArrayList<>(
                 Arrays.asList(
                         "Computer Science — Ph.D.",
                         "Computer Science — M.S.",
@@ -36,7 +37,7 @@ public class ProgramListActivity extends AppCompatActivity {
                 )
         );
 
-        recyclerView = findViewById(R.id.rvPrograms);
+        RecyclerView recyclerView = findViewById(R.id.rvPrograms);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ProgramListAdapter(programs));

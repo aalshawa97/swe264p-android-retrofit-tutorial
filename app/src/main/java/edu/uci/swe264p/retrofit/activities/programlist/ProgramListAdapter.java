@@ -1,11 +1,14 @@
-package edu.uci.swe264p.retrofit;
+package edu.uci.swe264p.retrofit.activities.programlist;
 
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import edu.uci.swe264p.retrofit.R;
+
 import java.util.List;
 
 
@@ -25,6 +28,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         }
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.program_row, parent, false);
