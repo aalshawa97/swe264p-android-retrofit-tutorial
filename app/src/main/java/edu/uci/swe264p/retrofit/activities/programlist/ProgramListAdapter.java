@@ -19,7 +19,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         this.mData = data;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
 
         ViewHolder(View itemView) {

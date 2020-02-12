@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import edu.uci.swe264p.retrofit.R;
 import edu.uci.swe264p.retrofit.data.Movie;
 import edu.uci.swe264p.retrofit.data.MovieApiClient;
@@ -37,8 +39,14 @@ public class MovieListActivity extends AppCompatActivity {
         public void onResponse(@NonNull Call<MovieList> call, Response<MovieList> response) {
             assert response.body() != null;
             final List<Movie> movieList = response.body().getMovieList();
+
             Log.i(TAG, "MovieList size = " + movieList.size());
             Log.i(TAG, "Top movie = " + movieList.get(0).getTitle());
+
+            RecyclerView recyclerView = findViewById(R.id.rvMovieList);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(MovieListActivity.this));
+            recyclerView.setAdapter(new MovieListAdapter(movieList));
         }
 
         @Override

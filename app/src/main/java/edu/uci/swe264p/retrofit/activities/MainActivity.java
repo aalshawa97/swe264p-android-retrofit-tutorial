@@ -49,13 +49,14 @@ public class MainActivity extends AppCompatActivity {
                     R.id.txtOverview
             };
 
-            assert response.body() != null;
+            Movie movie = response.body();
+            assert movie != null;
             String[] values = {
-                    response.body().getTitle(),
-                    response.body().getReleaseDate(),
-                    response.body().getPosterPath(),
-                    response.body().getVoteAverage().toString(),
-                    response.body().getOverview()
+                    movie.getTitle(),
+                    movie.getReleaseDate(),
+                    movie.getPosterPath(),
+                    movie.getVoteAverage().toString(),
+                    movie.getOverview()
             };
 
             for (int i = 0; i < ids.length; i++) {
